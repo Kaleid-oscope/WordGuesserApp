@@ -25,11 +25,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             click = new Button();
             Answer = new TextBox();
             Result = new Label();
             Choice = new Label();
-            AnswerList = new ListBox();
+            History = new ListBox();
             Prompts = new ListBox();
             SuspendLayout();
             // 
@@ -78,16 +79,16 @@
             Choice.Text = "Choices: \r\nApple\r\nBanana\r\nAvocado\r\nApricot\r\nPeach\r\nOrange\r\nMango\r\n";
             Choice.Click += label3_Click;
             // 
-            // AnswerList
+            // History
             // 
-            AnswerList.Font = new Font("Segoe UI", 10F);
-            AnswerList.FormattingEnabled = true;
-            AnswerList.ItemHeight = 17;
-            AnswerList.Location = new Point(470, 209);
-            AnswerList.Name = "AnswerList";
-            AnswerList.Size = new Size(318, 191);
-            AnswerList.TabIndex = 6;
-            AnswerList.SelectedIndexChanged += AnswerList_SelectedIndexChanged;
+            History.Font = new Font("Segoe UI", 10F);
+            History.FormattingEnabled = true;
+            History.ItemHeight = 17;
+            History.Location = new Point(470, 209);
+            History.Name = "History";
+            History.Size = new Size(318, 191);
+            History.TabIndex = 6;
+            History.SelectedIndexChanged += AnswerList_SelectedIndexChanged;
             // 
             // Prompts
             // 
@@ -103,15 +104,19 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
             Controls.Add(Prompts);
-            Controls.Add(AnswerList);
+            Controls.Add(History);
             Controls.Add(Choice);
             Controls.Add(Result);
             Controls.Add(Answer);
             Controls.Add(click);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,7 +127,7 @@
         private TextBox Answer;
         private Label Result;
         private Label Choice;
-        private ListBox AnswerList;
+        private ListBox History;
         private ListBox Prompts;
     }
 }
